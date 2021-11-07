@@ -15,7 +15,10 @@ class MyApp extends App {
     const protectedRoutes =
       ctx.pathname === "/" ||
       ctx.pathname === "/[username]" ||
-      ctx.pathname === "/locations" ;
+      ctx.pathname === "/locations" ||
+      ctx.pathname === "/locations/newLocation" ||
+      ctx.pathname === "/locations/[id]" ||
+      ctx.pathname === "/locations/[id]/edit" ;
     if (!token) {
       destroyCookie(ctx, "token");
       protectedRoutes && redirectUser(ctx, "/login");

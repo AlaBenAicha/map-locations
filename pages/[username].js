@@ -6,6 +6,7 @@ import baseUrl from "../utils/baseUrl";
 import { parseCookies } from "nookies";
 import { Grid } from "semantic-ui-react";
 import cookie from "js-cookie";
+import { Typography } from "@mui/material";
 // import ProfileMenuTabs from "../components/Profile/ProfileMenuTabs";
 // import ProfileHeader from "../components/Profile/ProfileHeader";
 // import UpdateProfile from "../components/Profile/UpdateProfile";
@@ -55,23 +56,9 @@ function ProfilePage({
       <Grid stackable>
 
         <Grid.Row>
-          {/* <Grid.Column>
-            {activeItem === "profile" && (
-              <>
-                <ProfileHeader
-                  profile={user}
-                  ownAccount={ownAccount}
-                />
-              </>
-            )} */}
-           
-           {/* 
-            {activeItem === "updateProfile" && <UpdateProfile Profile={profile} />}
-
-            {activeItem === "settings" && (
-              <Settings newMessagePopup={user.newMessagePopup} />
-            )} */}
-          {/* </Grid.Column> */}
+          <Grid.Column>
+            <Typography> {user.name} </Typography>
+          </Grid.Column>
         </Grid.Row>
       </Grid>
     </>
