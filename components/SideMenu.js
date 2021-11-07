@@ -38,17 +38,17 @@ function SideMenu({
         <br />
 
         <Link href={`/locations`}>
-          <List.Item active={isActive("locations")}>
-          <i class="map marker alternate icon"></i>
+          <List.Item active={isActive("/locations")}>
+          <i class="map marker alternate icon" color={isActive("/locations") && "teal"}></i>
             <List.Content>{pc && <List.Header content="Locations" />}</List.Content>
           </List.Item>
         </Link>
         <br />
         <br />
 
-        <Link href={`/newLocation`}>
-          <List.Item active={isActive("newLocation")}>
-          <i class="plus square outline icon"></i>
+        <Link href={`/locations/newLocation`}>
+          <List.Item active={isActive("/newLocation")}>
+          <i class="plus square outline icon" color={isActive("/newLocation") && "teal"}></i>
             <List.Content>{pc && <List.Header content="Add Location" />}</List.Content>
           </List.Item>
         </Link>

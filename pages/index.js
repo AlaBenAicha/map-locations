@@ -5,28 +5,27 @@ import baseUrl from "../utils/baseUrl";
 import { Button, Card, CardContent, CardHeader, Typography } from '@mui/material';
 import Map from '../components/Map';
 
-
 const Index = ({ user, locationsData, errorLoading }) => {
   const [locations, setLocations] = useState(locationsData || []);
   return (
-    <div className="locations-container" style={{ }}>
+    <div className="locations-container"  >
       <h1 style={{ margin: '5px'}}>Locations</h1>
       <Map style={{ margin: '5px'}} mapLocations={locations}/>
       <div className="grid wrapper">
         {locations?.map(location => {
           return (
-            <div key={location._id} style={{ margin: '5px'}}>
+            <div key={location._id} style={{ margin: '5px'}} >
               <Card style={{ margin: '5px', marginTop: '10px'}}>
                 <CardContent>
-                    <Link href={`/${location._id}`}>
+                    <Link href={`/locations/${location._id}`}>
                       <Typography>{location.name}</Typography>
                     </Link>
                 </CardContent>
                 <CardContent extra>
-                  <Link href={`/${location._id}`}>
+                  <Link href={`/locations/${location._id}`}>
                     <Button primary>View</Button>
                   </Link>
-                  <Link href={`/${location._id}/edit`}>
+                  <Link href={`/locations/${location._id}/edit`}>
                     <Button primary>Edit</Button>
                   </Link>
                 </CardContent>

@@ -42,7 +42,7 @@ function ProfilePage({
 
     return () => {
       if (socket.current) {
-        socket.current.emit("disconnect");
+        socket.current.disconnect()
         socket.current.off();
       }
     };

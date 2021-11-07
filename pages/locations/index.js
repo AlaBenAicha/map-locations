@@ -13,15 +13,15 @@ const Index = ({ locations }) => {
             <div key={location._id} style={{ margin: '5px'}}>
               <Card style={{ margin: '5px', marginTop: '10px'}}>
                 <CardContent>
-                    <Link href={`/${location._id}`}>
+                    <Link href={`/locations/${location._id}`}>
                       <Typography>{location.name}</Typography>
                     </Link>
                 </CardContent>
                 <CardContent extra>
-                  <Link href={`/${location._id}`}>
+                  <Link href={`/locations/${location._id}`}>
                     <Button primary>View</Button>
                   </Link>
-                  <Link href={`/${location._id}/edit`}>
+                  <Link href={`/locations/${location._id}/edit`}>
                     <Button primary>Edit</Button>
                   </Link>
                 </CardContent>
