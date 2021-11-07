@@ -10,6 +10,8 @@ import SideMenu from "./SideMenu";
 //import Search from "./Search";
 import MobileHeader from "./MobileHeader";
 import { createMedia } from "@artsy/fresnel";
+import Link from "next/link";
+
 
 const AppMedia = createMedia({
   breakpoints: { zero: 0, mobile: 549, tablet: 850, computer: 1080 }
@@ -138,6 +140,19 @@ function Layout({ children, user }) {
           </Container>
         </>
       )}
+      <footer style={{ padding:'32 px'}}>
+        <p>© 2020</p>
+
+        <ul>
+          {router.locales.map((locale) => (
+            <li key={locale}>
+              <Link href={router.asPath} locale={locale}>
+                <a>{locale}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </footer>
     </>
   );
 }
