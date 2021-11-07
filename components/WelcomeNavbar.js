@@ -5,10 +5,6 @@ const Navbar = () => (
         <Link href="/">
             <a className="navbar-brand">Locations</a>
         </Link>
-        
-        <Link href="/newLocation">
-            <a className="create">Create location</a>
-        </Link>
     </nav>
 )
 

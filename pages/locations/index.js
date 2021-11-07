@@ -1,19 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
 import Link from 'next/link';
-import axios from "axios";
-import baseUrl from "../utils/baseUrl";
+import fetch from 'isomorphic-unfetch';
 import { Button, Card, CardContent, CardHeader, Typography } from '@mui/material';
-import Map from '../components/Map';
-
-
-const Index = ({ user, locationsData, errorLoading }) => {
-  const [locations, setLocations] = useState(locationsData || []);
+import Map from '../../components/Map.js';
+const Index = ({ locations }) => {
   return (
     <div className="locations-container" style={{ }}>
       <h1 style={{ margin: '5px'}}>Locations</h1>
       <Map style={{ margin: '5px'}} mapLocations={locations}/>
       <div className="grid wrapper">
-        {locations?.map(location => {
+        {locations.map(location => {
           return (
             <div key={location._id} style={{ margin: '5px'}}>
               <Card style={{ margin: '5px', marginTop: '10px'}}>
@@ -39,27 +34,10 @@ const Index = ({ user, locationsData, errorLoading }) => {
   )
 }
 
-
-Index.getInitialProps = async ctx => {
-  try {
-    const { token } = parseCookies(ctx);
-
-    const res = await axios.get(`${baseUrl}/api/locations`, {
-      headers: { Authorization: token },
-      params: { pageNumber: 1 }
-    });
-    console.log(res.data);
-
-    return { locationsData: res.data };
-  } catch (error) {
-    return { errorLoading: true };
-  }
-};
-
-// Index.getInitialProps = async () => {
-//   const res = await fetch('http://localhost:3000/api/locations');
-//   const { data } = await res.json();
-//   return { locations: data}
-// }
+Index.getInitialProps = async () => {
+  const res = await fetch('http://localhost:3000/api/locations');
+  const { data } = await res.json();
+  return { locations: data}
+}
 
 export default Index;

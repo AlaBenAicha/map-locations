@@ -102,7 +102,7 @@ const EditLocation = ({ location }) => {
                                     </FormControl>
                                 </Grid>
                             </Grid>
-                            <Button style={{ margin: '10px', width: '120px'}} variant="contained" size="large" type='submit' > Add </Button>
+                            <Button style={{ margin: '10px', width: '120px'}} variant="contained" size="large" type='submit' > Update </Button>
                         </form>
                 }
             </div>
